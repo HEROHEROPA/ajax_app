@@ -9,7 +9,9 @@ class PostsController < ApplicationController
   # end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index#同一ページにリダイレクトする
+    # binding.pry
+    post = Post.create(content: params[:content])
+    #redirect_to action: :index#同一ページにリダイレクトする
+    render json:{post:post};#jsonフォーマットに変換してレスポンス送信する。
   end
 end
